@@ -35,18 +35,18 @@ function pickTweet(){
       }
   }
 
-exports.handler = function myBot(event, context) {
+function main(params){
 
     var textToTweet = pickTweet();
   
   	T.post('statuses/update', { status: textToTweet }, function(err, reply) {
               if (err) {
                 console.log('error:', err);
-                context.fail();
+                return{ error: err};
               }
               else {
                 console.log('tweet:', reply);
-                context.succeed();
+                return {payload: 'yep, tweeted'};
               }
             });
   };
