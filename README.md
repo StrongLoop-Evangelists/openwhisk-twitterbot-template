@@ -40,11 +40,11 @@ To add text for your bot to tweet, add it in the botfiles/sample-text.js directo
 
 IMPORTANT: you must install the botfiles folder as a local module before deploying: 
 
-`npm install --save ./YOURPATH/botfiles`
+`npm install --save ./botfiles`
 
 If you make changes, you must update the installation: 
 
-`rm -rf node_module/botfiles && npm install /YOURPATH/botfiles`
+`rm -rf node_module/botfiles && npm install --save ./botfiles`
 
 ##Deploy
 
