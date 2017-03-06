@@ -1,6 +1,5 @@
 #config
 botfiles/config.js
-lambda-config.js
 node_modules/*
 
 #OS junk files
@@ -10,6 +9,9 @@ node_modules/*
 logs
 *.log
 npm-debug.log*
+
+#zipfiles
+*.zip
 
 # Runtime data
 pids

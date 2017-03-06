@@ -35,20 +35,21 @@ function pickTweet(){
       }
   }
 
-function main(params){
+function main(){
 
     var textToTweet = pickTweet();
-  
-  	T.post('statuses/update', { status: textToTweet }, function(err, reply) {
-              if (err) {
-                console.log('error:', err);
-                return{ error: err};
-              }
-              else {
-                console.log('tweet:', reply);
-                return {payload: 'yep, tweeted'};
-              }
-            });
+    
+    return new Promise((resolve, reject) => {    
+      T.post('statuses/update', { status: textToTweet }, function(err, reply) {
+        if (err) {
+          reject(err)
+        }
+        else {
+          resolve({payload: 'yep, tweeted: '+ textToTweet});
+        }
+      });
+    })
   };
+
 
 exports.main = main;
