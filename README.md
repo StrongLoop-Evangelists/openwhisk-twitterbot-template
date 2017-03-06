@@ -1,6 +1,6 @@
 #Make Your Own TwitterBot With OpenWhisk
 
-Twitterbots are fun, and it's easy to create one with Apache OpenWhisk and Bluemix.
+Twitterbots are fun, and it's easy to create one with Apache OpenWhisk and Bluemix. With this template, you can make a bot that randomly tweets a line from a textfile. (For an example, checkout [PLUBot](https://twitter.com/PLUBot).)
 
 ##Instructions
 
@@ -77,34 +77,14 @@ Remember that if you change your action, you need to `update` it:
 #####Check your action
 Before we set up triggers and rules to let our bot tweet by itself, let's check that it actually works.
 
-`wsk action invoke myTwitterbot --blocking`
+`wsk action invoke myTwitterbot -r --blocking`
 
-You should see a response like this: 
+You should see a response like this (the "payload" should be a line from your sample-text.js)
 
 ~~~~
 {
-    "namespace": "YOURNAMESPACE",
-    "name": "myTwitterBot",
-    "version": "0.0.1",
-    "subject": "YOUR EMAIL",
-    "activationId": "00c11bbcfbb444ac81a532614be795ac",
-    "start": 1488838498568,
-    "end": 1488838501165,
-    "duration": 2597,
-    "response": {
-        "status": "success",
-        "statusCode": 0,
-        "success": true,
-        "result": {
-            "payload": "yep, tweeted: 4016: Red Delicious apples"
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            ^this is what your bot tweeted
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-            
-        }
-    },
-    ....
-    }
+    "payload": "I'm a good bot, Brant"
+}
 ~~~~
 
 
