@@ -77,7 +77,7 @@ Remember that if you change your action, you need to `update` it:
 #####Check your action
 Before we set up triggers and rules to let our bot tweet by itself, let's check that it actually works.
 
-`wsk action invoke myTwitterbot -r --blocking`
+`wsk action invoke myTwitterBot -r --blocking`
 
 You should see a response like this (the "payload" should be a line from your sample-text.js)
 
