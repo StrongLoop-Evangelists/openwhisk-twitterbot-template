@@ -37,7 +37,7 @@ Put this information in the `temp-config.js` file, and rename it to `config.js`.
 
 `wsk property set --apihost YOURNAMESPACE --auth YOURAUTHORIZATIONKEY`
 
-
+(If you have a default NAMESPACE there won't be a NAMESPACE value in your Bluemix auth. Just copy-paste what you get after logging in and use that.)
 
 You can also run your own OpenWhisk server! This is beyond the scope of this workshop, but you can find more info [here](https://github.com/openwhisk/openwhisk).
 
