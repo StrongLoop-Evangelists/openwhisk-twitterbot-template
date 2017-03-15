@@ -1,10 +1,10 @@
-#Make Your Own TwitterBot With OpenWhisk
+# Make Your Own TwitterBot With OpenWhisk
 
 Twitterbots are fun, and it's easy to create one with Apache OpenWhisk and Bluemix. With this template, you can make a bot that randomly tweets a line from a textfile. (For an example, check out [PLUBot](https://twitter.com/PLUBot).)
 
-##Instructions
+## Instructions
 
-###1. Clone this repo
+### 1. Clone this repo
 
 Prerequisites: I assume you have node and npm installed. Need help installing either? [Here's a link for you.](http://blog.npmjs.org/post/85484771375/how-to-install-npm)
 
@@ -12,7 +12,7 @@ Prerequisites: I assume you have node and npm installed. Need help installing ei
 2. Run `npm install`
 3. Open in your favorite editor.
 
-###2. Get Credentials and Add Configuration
+### 2. Get Credentials and Add Configuration
 
 To run your own bot you will need Twitter and Bluemix credentials, the OpenWhisk CLI, and an idea.
 
@@ -42,7 +42,7 @@ Put this information in the `temp-config.js` file, and rename it to `config.js`.
 You can also run your own OpenWhisk server! This is beyond the scope of this workshop, but you can find more info [here](https://github.com/openwhisk/openwhisk).
 
 
-###3. Add Your Source Data
+### 3. Add Your Source Data
 
 To add text for your bot to tweet, add it in the `botfiles/sample-text.js` file.
 
@@ -57,7 +57,7 @@ If you make changes, you must update the installation:
 ##### Run Tests
 There are tests for the functions in `index.js` in the `tests/test.js` file. Run them with `npm test`.
 
-###4. Create a Zipfile
+### 4. Create a Zipfile
 Because we want to use node modules with our bot, we'll upload our entire directory as a zip file. NB: We want to zip the *contents* of our repo, not the root folder.
 
 On a Mac, you can do this with this command: 
@@ -66,7 +66,7 @@ On a Mac, you can do this with this command:
 If you update your bot, remember to remove your zip file so that it doesn't get re-zipped into your updated file! Try 
 `rm twitterbot.zip && zip -r -X "twitterbot.zip" *`
 
-###5. Create Your OpenWhisk Action
+### 5. Create Your OpenWhisk Action
 
 `wsk action create myTwitterBot --kind nodejs:6 twitterbot.zip`
 
@@ -74,7 +74,7 @@ Remember that if you change your action, you need to `update` it:
 
 `wsk action update myTwitterBot --kind nodejs:6 twitterbot.zip`
 
-#####Check your action
+##### Check your action
 Before we set up triggers and rules to let our bot tweet by itself, let's check that it actually works.
 
 `wsk action invoke myTwitterBot -r --blocking`
@@ -88,14 +88,14 @@ You should see a response like this (the "payload" should be a line from your sa
 ~~~~
 
 
-###6. Create Your OpenWhisk Trigger
+### 6. Create Your OpenWhisk Trigger
 We want our bot to tweet once an hour (don't have your bot tweet more than once an hour; that's kind of rude). You can set an alarm trigger with `cron` (let's call it `sendTweet`) to make this happen, like so: 
 
 `wsk trigger create sendTweet --feed /whisk.system/alarms/alarm --param cron "5 * * * 0-6"`
 
 Cron syntax is tricky! If you don't want to remember it, you can use this handy [crontab generator](http://crontab-generator.org/).
 
-###7. Create Your OpenWhisk Rule
+### 7. Create Your OpenWhisk Rule
 Once you have an action and a trigger, you can put them together with a rule, like so:
 
 `wsk rule create tweetRule sendTweet myTwitterBot`
@@ -104,11 +104,14 @@ The format here is
 
 `wsk rule create NameOfRule NameOfTrigger NameOfAction`
 
-###8. Enjoy Your Bot!
+### 8. Enjoy Your Bot!
 
 Your bot should now tweet five minutes after the hour, every hour, forever (or until your Bluemix trial expires). 
 
+### At IBM InterConnect? Complete this lab and scan this code for InterConnect bucks! 
+![QR code](https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=QR234)
 
-##Thank Yous
+
+## Thank Yous
 Thanks to [Darius Kazemi](https://github.com/dariusk) for the wordfilter module and for the .pick function. Thanks to [Ray Camden](https://www.raymondcamden.com/) for the best darn OpenWhisk blog posts ever, plus the link to the [crontab generator](http://crontab-generator.org/). Thanks also to [Allison Parrish](https://twitter.com/aparrish) and David Celis for reviewing an earlier version of this bot repo; all errors remain the exclusive property & reponsibility of the author. :-)
 
