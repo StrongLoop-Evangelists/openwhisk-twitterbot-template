@@ -1,6 +1,6 @@
 #Make Your Own TwitterBot With OpenWhisk
 
-Twitterbots are fun, and it's easy to create one with Apache OpenWhisk and Bluemix. With this template, you can make a bot that randomly tweets a line from a textfile. (For an example, checkout [PLUBot](https://twitter.com/PLUBot).)
+Twitterbots are fun, and it's easy to create one with Apache OpenWhisk and Bluemix. With this template, you can make a bot that randomly tweets a line from a textfile. (For an example, check out [PLUBot](https://twitter.com/PLUBot).)
 
 ##Instructions
 
