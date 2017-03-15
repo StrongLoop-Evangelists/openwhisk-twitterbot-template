@@ -108,10 +108,6 @@ The format here is
 
 Your bot should now tweet five minutes after the hour, every hour, forever (or until your Bluemix trial expires). 
 
-###At IBM Interconnect 2017? Want a t-shirt?
-
-Complete the bot and then scan this code: 
-![QRcode](https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=QR234)
 
 ##Thank Yous
 Thanks to [Darius Kazemi](https://github.com/dariusk) for the wordfilter module and for the .pick function. Thanks to [Ray Camden](https://www.raymondcamden.com/) for the best darn OpenWhisk blog posts ever, plus the link to the [crontab generator](http://crontab-generator.org/). Thanks also to [Allison Parrish](https://twitter.com/aparrish) and David Celis for reviewing an earlier version of this bot repo; all errors remain the exclusive property & reponsibility of the author. :-)
