@@ -19,7 +19,7 @@ To run your own bot you will need Twitter and Bluemix credentials, the OpenWhisk
 ##### Create a Twitter account and app keys
 
 * a Twitter account
-* a Twitter application (not the same as a Twitter account; apply for one at [apps.twitter.com](apps.twitter.com))
+* a Twitter application (not the same as a Twitter account; apply for one at [https://apps.twitter.com](apps.twitter.com))
 * a Consumer Key, a Consumer Secret, an Access Token, and your Access Token Secret
 
 Put this information in the `temp-config.js` file, and rename it to `config.js`. Then delete `temp-config.js`.
@@ -31,20 +31,17 @@ Put this information in the `temp-config.js` file, and rename it to `config.js`.
 
 ##### Install and configure Openwhisk
 * Visit the [OpenWhisk CLI setup page](https://console.ng.bluemix.net/openwhisk/cli) and log in to Bluemix.
-* Note your `Namespace` and `Authorization Key`. You will need them!
 * Install the OpenWhisk CLI (instructions [here](https://console.ng.bluemix.net/docs/openwhisk/openwhisk_cli.html#openwhisk-cli)).
-* Once you have the OW CLI installed, set your `Namespace` and `Authorization Key`:
-
-`wsk property set --apihost YOURNAMESPACE --auth YOURAUTHORIZATIONKEY`
-
-(If you have a default NAMESPACE there won't be a NAMESPACE value in your Bluemix auth. Just copy-paste what you get after logging in and use that.)
+* Log in to Bluemix, if you haven't already.
+* Follow these instructions (step 2 of the CLI setup) to authorize your OpenWhisk CLI: 
+![instructions](https://github.com/emckean/blank-openwhisk-bot/blob/master/bluemix-auth.png?raw=true)
 
 You can also run your own OpenWhisk server! This is beyond the scope of this workshop, but you can find more info [here](https://github.com/openwhisk/openwhisk).
 
 
 ### 3. Add Your Source Data
 
-To add text for your bot to tweet, add it in the `botfiles/sample-text.js` file.
+To add text for your bot to tweet, add it in the `botfiles/sample-text.js` file. Make sure each line you add (except the last one) ends with a comma. This file should have no blank lines.
 
 IMPORTANT: you must install the botfiles folder as a local module before deploying: 
 
@@ -107,6 +104,20 @@ The format here is
 ### 8. Enjoy Your Bot!
 
 Your bot should now tweet five minutes after the hour, every hour, forever (or until your Bluemix trial expires). 
+
+### 9. Want to Turn Off Your Bot?
+
+Double-check the name of your rule by entering 
+`wsk rule list` at the command line. Then delete your rule (most likely `tweetRule`) with the line 
+`wsk delete rule tweetRule`. 
+
+### 10. Cleanup
+
+If you are creating this example on a lab computer, make sure you:
+
+* log out of your Bluemix account
+* delete your bot code on this machine: `rm -rf openwhisk-twitterbot-template`
+* de-authorize your OpenWhisk account on this machine, by removing `$HOME/.wskprops` (on the Interconect DevZone lab machines this will be in `/usr/local/bin`).
 
 ### At IBM InterConnect? Complete this lab and scan this code for InterConnect bucks! 
 ![QR code](https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=QR234)
