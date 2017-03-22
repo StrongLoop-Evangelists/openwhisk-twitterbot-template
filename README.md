@@ -118,6 +118,7 @@ If you are creating this example on a lab computer, make sure you:
 * log out of your Bluemix account
 * delete your bot code on this machine: `rm -rf openwhisk-twitterbot-template`
 * de-authorize your OpenWhisk account on this machine, by removing `$HOME/.wskprops` (on the Interconect DevZone lab machines this will be in `/usr/local/bin`).
+* delete sensitive commands (e.g., your OpenWhisk auth command) from your bash/zsh history. You can do this by editing the `~/.bash_history` or `~/.zsh_history` files. (The zsh shell may also  be called `.zhistory`. Not sure where yours is? Try `echo $HISTFILE`.)
 
 ### At IBM InterConnect? Complete this lab and scan this code for InterConnect bucks! 
 ![QR code](https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=QR234)
