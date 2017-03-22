@@ -1,5 +1,5 @@
 #config
-botfiles/config.js
+config.js
 node_modules/*
 
 #OS junk files

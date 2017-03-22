@@ -23,7 +23,6 @@
     "rewire": "^2.5.1"
   },
   "dependencies": {
-    "botfiles": "file:botfiles",
     "twit": "^2.2.4",
     "underscore": "^1.8.3",
     "wordfilter": "^0.2.6"

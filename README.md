@@ -41,15 +41,8 @@ You can also run your own OpenWhisk server! This is beyond the scope of this wor
 
 ### 3. Add Your Source Data
 
-To add text for your bot to tweet, add it in the `botfiles/sample-text.js` file. Make sure each line you add (except the last one) ends with a comma. This file should have no blank lines.
+To add text for your bot to tweet, enter it in the `sample-text.js` file. Make sure each line you add (except the last one) ends with a comma. This file should have no blank lines.
 
-IMPORTANT: you must install the botfiles folder as a local module before deploying: 
-
-`npm install --save ./botfiles`
-
-If you make changes, you must update the installation: 
-
-`rm -rf node_module/botfiles && npm install --save ./botfiles`
 
 ##### Run Tests
 There are tests for the functions in `index.js` in the `tests/test.js` file. Run them with `npm test`.
