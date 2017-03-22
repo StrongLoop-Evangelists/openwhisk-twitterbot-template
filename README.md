@@ -73,7 +73,7 @@ You should see a response like this (the "payload" should be a line from your sa
 
 ~~~~
 {
-    "payload": "I'm a good bot, Brant"
+    "payload": "yep, tweeted: I'm a good bot, Brant"
 }
 ~~~~
 
